@@ -1,0 +1,46 @@
+<h2>Exercise 5</h2>
+<h3>Your mission is to refactor our two dropdowns code into one component</h3>
+<img src="assets/exercise5.gif" />
+<ol>
+  <li>The code for both our country and state dropdowns is very similar</li>
+  <li>
+    Create a component that refactors the behavior of those dropdowns in one
+    single reusable component
+  </li>
+  <li>
+    Then use two instances of that component, one for country selection, one for
+    state selection
+  </li>
+  <li>
+    Render both currently selected <code>country</code> and
+    <code>state</code> as JSON below the dropdowns
+  </li>
+</ol>
+<h4>
+  You can take a look at the expected result here:
+  <a routerLink="/solution/5">http://localhost:4200/solution/5</a>
+</h4>
+<hr />
+<h2>Result</h2>
+
+<app-filter-dropdown
+  placeholder="Enter country name"
+  [control]="countryControl"
+  [items$]="countries$"
+  (onSelectEvent$)="onSelectCountry($event)"
+>
+</app-filter-dropdown>
+
+<app-filter-dropdown
+  placeholder="Enter state name"
+  [control]="stateControl"
+  [items$]="states$"
+  (onSelectEvent$)="onSelectState($event)"
+>
+</app-filter-dropdown>
+
+<div>
+  <h4>Current Selection:</h4>
+  <p>Country: {{ currentCountry | json }}</p>
+  <p>State: {{ currentState | json }}</p>
+</div>

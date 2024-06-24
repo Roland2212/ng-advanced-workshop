@@ -1,0 +1,17 @@
+<ng-container *ngIf="filteredItems$ | async as items">
+  <div class="dropdown">
+    <input
+      class="dropbtn"
+      [placeholder]="placeholder"
+      [formControl]="control"
+    />
+    <div class="dropdown-content">
+      <span
+        *ngFor="let item of items"
+        (click)="onSelectOption(item)"
+        [innerHtml]="item.description | highlightValue : control.value"
+      >
+      </span>
+    </div>
+  </div>
+</ng-container>

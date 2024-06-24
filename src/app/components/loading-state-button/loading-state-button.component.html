@@ -1,0 +1,13 @@
+<div class="loading-state-button-container">
+  <ng-container *ngIf="state === 'start'">
+    <ng-content select="[start]"></ng-content>
+  </ng-container>
+
+  <ng-container *ngIf="state === 'loading'">
+    <ng-content select="[loading]"></ng-content>
+  </ng-container>
+
+  <ng-container *ngIf="state === 'finished'">
+    <ng-content select="[finish]"></ng-content>
+  </ng-container>
+</div>
